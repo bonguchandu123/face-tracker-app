@@ -107,6 +107,8 @@ cd face-tracker-app
 ```
 
 
+```
+
 ### 2. Install dependencies
 npm install
 
@@ -116,6 +118,9 @@ npm run dev
 ### Build for Production
 npm run build
 npm start
+
+
+```
 
 ###  Mobile Responsiveness
 The canvas height is adjusted for smaller devices to use more Y-axis space. Tailwind CSS breakpoints or media queries are applied for better experience on phones.
