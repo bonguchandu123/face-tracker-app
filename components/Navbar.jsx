@@ -42,14 +42,14 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Nav */}
+       
           <div className="hidden sm:!flex items-center gap-6 z-10">
             <NavLink href="/" label="Home" icon={<Home className="w-4 h-4" />} />
             <NavLink href="/tracking" label="Tracking" icon={<Camera className="w-4 h-4" />} />
             <NavLink href="/recordings" label="Recordings" icon={<Video className="w-4 h-4" />} />
           </div>
 
-          {/* Mobile Toggle */}
+    
           <div className="sm:hidden z-20">
             <button onClick={() => setIsOpen(!isOpen)} className="p-2 rounded-md hover:bg-white/5">
               {isOpen ? <X className="w-6 h-6 text-white" /> : <Menu className="w-6 h-6 text-white" />}
@@ -57,7 +57,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Dropdown */}
+
         {isOpen && (
           <div ref={menuRef} className="sm:hidden mt-2 flex flex-col gap-2 pb-4 z-10 relative w-full">
             <NavLink full href="/" label="Home" icon={<Home className="w-4 h-4" />} closeMenu={() => setIsOpen(false)} />
@@ -70,7 +70,6 @@ export default function Navbar() {
   );
 }
 
-// ⬇️ Updated NavLink to accept and call closeMenu
 function NavLink({ href, label, icon, full = false, closeMenu }) {
   return (
     <Link

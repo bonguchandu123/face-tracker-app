@@ -88,7 +88,7 @@ export default function FaceTracker() {
 
   return (
     <div className="space-y-6 px-4">
-      {/* Increased height on small devices */}
+  
       <div className="relative w-full h-[75vh] sm:h-[480px] rounded-lg overflow-hidden ring-1 ring-gray-700">
         <video
           ref={videoRef}

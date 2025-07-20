@@ -6,7 +6,7 @@ import { useState } from "react";
 const VideoList = dynamic(() => import("@/components/VideoList"), { ssr: false });
 
 export default function RecordingsPage() {
-  const [refreshCount, setRefreshCount] = useState(0);
+  const [refCnt, setRefCnt] = useState(0);
 
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white p-4 pt-24">
@@ -16,7 +16,7 @@ export default function RecordingsPage() {
       <p className="text-center text-gray-400 mb-6">
         Browse and manage your previously saved recordings.
       </p>
-      <VideoList refreshTrigger={refreshCount} />
+      <VideoList refreshTrigger={refCnt} />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 
 
-const VIDEO_STORAGE_KEY = "face-tracker-videos";
+const VIDEO_STORAGE_KEY = "my-face-tracker-storage";
 
 export function saveVideoToStorage(url) {
   const videos = getAllVideos();

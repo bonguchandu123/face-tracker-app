@@ -33,7 +33,7 @@ export default function Recorder({ stream, refresh }) {
   const saveVideo = () => {
     saveVideoToStorage(tempUrl);
     setTempUrl(null);
-    refresh?.(); // only call if provided
+    refresh?.(); 
   };
 
   const cancelVideo = () => {
@@ -77,7 +77,7 @@ export default function Recorder({ stream, refresh }) {
         ⬇️ Download
       </a>
       <button onClick={cancelVideo} className="bg-gray-600 px-4 py-2 rounded">
-        ❌ Discard
+         Discard
       </button>
     </div>
   </div>
