@@ -1,36 +1,126 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🎥 Face Tracker App
 
-## Getting Started
+A React-based face tracking application using **MediaPipe FaceMesh** and **MediaRecorder API**, which records and stores short face tracking videos locally using `localStorage`.
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+<img width="1896" height="867" alt="Image" src="https://github.com/user-attachments/assets/89507dfc-f8c4-4fba-99c0-a412b4d15bda" />
+---
+
+## 🚀 Features
+
+- 📹 Live face tracking using **MediaPipe**
+- 🧠 Real-time mesh overlay on canvas
+- 🎞️ Records short video clips
+- 💾 Saves recorded videos to browser's `localStorage`
+- 🧹 Allows deleting saved videos
+- 📱 Mobile responsive UI
+
+---
+
+## 🖼️ Demo
+
+👉 [Click to view live demo](https://face-tracker-app-two.vercel.app/)
+
+---
+
+## 📂 Project Structure
+```
+.
+├── app
+│   ├── recordings
+│   │   └── page.jsx        # Recordings page to view saved videos
+│   ├── tracking
+│   │   └── page.jsx        # Main face tracking + recording page
+│   ├── favicon.ico
+│   ├── globals.css         # Tailwind CSS and global styles
+│   ├── layout.js           # Shared layout wrapper
+│   └── page.js             # Home page
+├── components              # Reusable components
+│   ├── ExploreSection.jsx
+│   ├── FaceTracker.jsx
+│   ├── Footer.jsx
+│   ├── Header.jsx
+│   ├── Navbar.jsx
+│   ├── Recorder.jsx
+│   └── VideoList.jsx
+├── public                 # Static files (if needed)
+├── utils
+│   └── localStorage.js     # Utility functions to save/load/delete videos
+├── .gitignore
+├── README.md
+├── eslint.config.mjs
+├── jsconfig.json
+├── next.config.mjs
+├── package.json
+├── package-lock.json
+├── postcss.config.js
+├── postcss.config.mjs
+└── tailwind.config.js
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚙️ Features
+🎥 Face Tracking using MediaPipe
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+⏺️ Webcam video recording
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+💾 Save videos using localStorage
 
-## Learn More
+🗂️ View and delete previous recordings
 
-To learn more about Next.js, take a look at the following resources:
+⚡ Fast performance with Next.js 15 App Router
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🌙 Responsive design with Tailwind CSS
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🛠️ Tech Stack
+
+- **React (Next.js App Router)**
+- **MediaPipe** for real-time face tracking
+- **MediaRecorder API** to record the canvas stream
+- **Tailwind CSS** (for styling, optional)
+- **localStorage** for persistent video storage in browser
+
+---
+
+## 🔧 How It Works
+
+1. Accesses the user's webcam.
+2. Uses MediaPipe to detect facial landmarks.
+3. Draws the landmarks on a `<canvas>` element.
+4. Starts recording the canvas stream using `MediaRecorder`.
+5. On stop, saves the video blob URL to `localStorage`.
+6. Displays all saved videos in a gallery below the tracker.
+7. Videos can be deleted individually.
+
+---
+
+## 🧪 Local Development
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/YOUR_USERNAME/face-tracker-app.git
+cd face-tracker-app
+```
+
+
+### 2. Install dependencies
+npm install
+
+### 3. Run the development server
+npm run dev
+
+### Build for Production
+npm run build
+npm start
+
+###  Mobile Responsiveness
+The canvas height is adjusted for smaller devices to use more Y-axis space. Tailwind CSS breakpoints or media queries are applied for better experience on phones.
+
+
+
+
+
