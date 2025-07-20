@@ -1,6 +1,6 @@
-# 🎥 Face Tracker App
+## 🎥 Face Tracker App
 
-A React-based face tracking application using **MediaPipe FaceMesh** and **MediaRecorder API**, which records and stores short face tracking videos locally using `localStorage`.
+A face tracking application using **MediaPipe FaceMesh** and **MediaRecorder API**, which records and stores short face tracking videos locally using `localStorage`.
 
 
 <img width="1896" height="867" alt="Image" src="https://github.com/user-attachments/assets/89507dfc-f8c4-4fba-99c0-a412b4d15bda" />
@@ -77,7 +77,7 @@ A React-based face tracking application using **MediaPipe FaceMesh** and **Media
 
 ## 🛠️ Tech Stack
 
-- **React (Next.js App Router)**
+- **(Next.js)**
 - **MediaPipe** for real-time face tracking
 - **MediaRecorder API** to record the canvas stream
 - **Tailwind CSS** (for styling, optional)
