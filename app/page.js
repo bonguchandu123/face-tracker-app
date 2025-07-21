@@ -2,6 +2,7 @@
 
 import Header from '@/components/Header';
 import ExploreSection from '@/components/ExploreSection';
+import About from '@/components/About';
 
 export default function Home() {
  
@@ -12,6 +13,7 @@ export default function Home() {
 
         <Header />
         <ExploreSection />
+        <About/>
       
     </div>
   );
