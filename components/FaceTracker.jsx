@@ -72,13 +72,14 @@ export default function FaceTracker() {
       }
     });
 
-    const camera = new window.Camera(videoRef.current, {
-      onFrame: async () => {
-        await faceMesh.send({ image: videoRef.current });
-      },
-      width: 640,
-      height: 480,
-    });
+   const camera = new window.Camera(videoRef.current, {
+  onFrame: async () => {
+    await faceMesh.send({ image: videoRef.current });
+  },
+  width: 1280,
+  height: 720,
+});
+
 
     navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
       videoRef.current.srcObject = stream;
@@ -89,16 +90,20 @@ export default function FaceTracker() {
   return (
     <div className="space-y-6 px-4">
   
-      <div className="relative w-full h-[75vh] sm:h-[480px] rounded-lg overflow-hidden ring-1 ring-gray-700">
-        <video
-          ref={videoRef}
-          className="absolute w-full h-full object-cover"
-          autoPlay
-          muted
-          playsInline
-        />
-        <canvas ref={canvasRef} className="absolute w-full h-full" />
-      </div>
+      <div className="relative w-full aspect-video rounded-lg overflow-hidden ring-1 ring-gray-700 bg-black">
+  <video
+    ref={videoRef}
+    className="absolute top-1/2 left-1/2 w-auto h-full max-h-full transform -translate-x-1/2 -translate-y-1/2 object-contain"
+    autoPlay
+    muted
+    playsInline
+  />
+  <canvas
+    ref={canvasRef}
+    className="absolute top-1/2 left-1/2 w-auto h-full max-h-full transform -translate-x-1/2 -translate-y-1/2"
+  />
+</div>
+
 
       <div className="flex gap-4 justify-center">
         {!recording ? (
