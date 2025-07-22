@@ -15,19 +15,21 @@ export default function FaceTracker() {
   const router = useRouter();
 
   const startRecording = () => {
-    const stream = videoRef.current.srcObject;
-    const recorder = new MediaRecorder(stream);
-    const chunks = [];
-    recorder.ondataavailable = (e) => chunks.push(e.data);
-    recorder.onstop = () => {
-      const blob = new Blob(chunks, { type: "video/webm" });
-      const url = URL.createObjectURL(blob);
-      setTempUrl(url);
-    };
-    recorder.start();
-    recorderRef.current = recorder;
-    setRecording(true);
+  const canvasStream = canvasRef.current.captureStream(30); // capture from canvas (includes green dots)
+  const recorder = new MediaRecorder(canvasStream);
+  const chunks = [];
+
+  recorder.ondataavailable = (e) => chunks.push(e.data);
+  recorder.onstop = () => {
+    const blob = new Blob(chunks, { type: "video/webm" });
+    const url = URL.createObjectURL(blob);
+    setTempUrl(url);
   };
+
+  recorder.start();
+  recorderRef.current = recorder;
+  setRecording(true);
+};
 
   const stopRecording = () => {
     recorderRef.current.stop();
@@ -59,6 +61,8 @@ export default function FaceTracker() {
       canvas.width = videoRef.current.videoWidth;
       canvas.height = videoRef.current.videoHeight;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
+
 
       if (results.multiFaceLandmarks) {
         results.multiFaceLandmarks.forEach((landmarks) => {
@@ -72,14 +76,13 @@ export default function FaceTracker() {
       }
     });
 
-   const camera = new window.Camera(videoRef.current, {
-  onFrame: async () => {
-    await faceMesh.send({ image: videoRef.current });
-  },
-  width: 1280,
-  height: 720,
-});
-
+    const camera = new window.Camera(videoRef.current, {
+      onFrame: async () => {
+        await faceMesh.send({ image: videoRef.current });
+      },
+      width: 640,
+      height: 480,
+    });
 
     navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
       videoRef.current.srcObject = stream;
